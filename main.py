@@ -134,7 +134,7 @@ async def removeExpiredRoles(interaction: discord.Interaction, user: discord.Use
                 await user.remove_roles(role, reason="Subscription has expired.")
     return
 
-@tree.command(name = "gen", description = "Generate an account of your choice", guild=discord.Object(id=config["guild-id"]))
+@tree.command(name = "gen", description = "Generate an account of your choice", guild=discord.Object(id=int(config["guild-id"])))
 @app_commands.autocomplete(service=service_autcom)
 async def gen(interaction: discord.Interaction, service: str, is_premium: bool=False):
     
